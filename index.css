@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background-color: #050608;
+    color: #e2e8f0;
+    user-select: none;
+    -webkit-user-select: none;
+    overscroll-behavior: none;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-mono-hud {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Horror Atmosphere Scanlines & Vignette */
+.vignette-overlay {
+  background: radial-gradient(circle at center, transparent 35%, rgba(2, 4, 8, 0.75) 75%, rgba(0, 0, 0, 0.95) 100%);
+  pointer-events: none;
+}
+
+.blood-vignette {
+  background: radial-gradient(circle at center, transparent 30%, rgba(185, 28, 28, 0.35) 70%, rgba(127, 29, 29, 0.8) 100%);
+  pointer-events: none;
+}
+
+.crt-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.animate-glitch {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+/* Critical Fear Distortion & Psychosis Vignette */
+.fear-critical-vignette {
+  background: radial-gradient(circle at center, transparent 25%, rgba(67, 10, 110, 0.42) 65%, rgba(18, 2, 32, 0.96) 100%);
+  pointer-events: none;
+}
+
+@keyframes panic-shake {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-1.5px, 1px) scale(1.002); }
+  50% { transform: translate(1.5px, -1px) scale(0.999); }
+  75% { transform: translate(-1px, -1px) scale(1.001); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-panic-shake {
+  animation: panic-shake 0.18s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+@keyframes fear-pulse {
+  0%, 100% { opacity: 0.65; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.02); }
+}
+
+.animate-fear-pulse {
+  animation: fear-pulse 1.4s ease-in-out infinite;
+}
+
+.fear-bar-critical-glow {
+  box-shadow: 0 0 14px rgba(217, 70, 239, 0.75), inset 0 0 6px rgba(244, 63, 94, 0.6);
+}
+
+
+
+/* Mobile browser and safe-area hardening */
+html, body, #root { width: 100%; height: 100%; min-height: 100%; margin: 0; overflow: hidden; }
+body { position: fixed; inset: 0; touch-action: none; -webkit-tap-highlight-color: transparent; }
+canvas { display: block; width: 100%; height: 100%; outline: none; }
+button { touch-action: manipulation; }
+@supports (height: 100dvh) { #root { height: 100dvh; } }

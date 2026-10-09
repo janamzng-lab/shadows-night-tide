@@ -1,0 +1,15 @@
+SHADOWS: NIGHT TIDE — نشر على Vercel
+
+المشروع مجهز كـ Vite/React. إعدادات البناء:
+Build Command: npm run build
+Output Directory: dist
+Node.js: 22
+
+لو ظهر ENOTFOUND أثناء Installing dependencies:
+هذا غالبًا فشل DNS/اتصال بسجل npm وليس خطأ في اللعبة نفسها.
+1) جرّب Redeploy مرة أخرى بعد تغيير الشبكة بين Wi‑Fi وبيانات الهاتف.
+2) لا تغيّر ملفات اللعبة ولا تحذف package-lock.json.
+3) إذا تكرر الخطأ، افتح Build Logs وابحث عن الرابط/اسم النطاق بعد getaddrinfo أو ENOTFOUND.
+
+مهم: هذا ملف مصدر المشروع مع إعداد Vercel؛ ليس رابطًا منشورًا ولا نسخة build جاهزة.
+لازم Vercel ينزّل المكتبات ويبني المشروع أولًا، ثم يعطيك رابط اللعبة.
